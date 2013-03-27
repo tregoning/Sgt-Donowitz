@@ -15,7 +15,7 @@ How?:
 -----
 from the root of your project run:
 
-`curl -s https://github.com/tregoning/Sgt-Donowitz/install.sh | sh`
+`curl -s https://raw.github.com/tregoning/Sgt-Donowitz/master/install.sh | sh`
 
 
 Where?
