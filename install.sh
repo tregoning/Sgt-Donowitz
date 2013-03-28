@@ -84,34 +84,122 @@ which jshint &> /dev/null
 EXIT_CODE=`expr ${EXIT_CODE} + $?`
 if [[ ${EXIT_CODE} -ne 0 ]]; then
     echo "Installing JSHint..."
-	npm install jshint -g
 	EXIT_CODE=0
+	npm install jshint -g
+	EXIT_CODE=`expr ${EXIT_CODE} + $?`
+	if [[ ${EXIT_CODE} -ne 0 ]]; then
+		echo ""
+	    echo " ----------------------------------------------- "
+	    echo "|    * * * CANNOT INSTALL SGT DONOWITZ * * *    |"
+	    echo "|                                               |"
+	    echo "| There was a problem installing JSHint...      |"
+	    echo "|                                               |"
+	    echo "| most likely this is a permission problem      |"
+	    echo "| try running the script with sudo perhaps?     |"	
+	    echo "|                                               |"
+	    echo " ----------------------------------------------- "	
+	    echo ""
+	    exit ${EXIT_CODE}
+	fi
 fi
 
 # Ensure the script doesn't already contain a .jshintrc file
 ls -l .jshintrc &> /dev/null
 EXIT_CODE=`expr ${EXIT_CODE} + $?`
 if [[ ${EXIT_CODE} -ne 0 ]]; then
-	curl -o .jshintrc https://raw.github.com/tregoning/Sgt-Donowitz/master/.jshintrc
 	EXIT_CODE=0
+	curl -o .jshintrc https://raw.github.com/tregoning/Sgt-Donowitz/master/.jshintrc
+	EXIT_CODE=`expr ${EXIT_CODE} + $?`
+	if [[ ${EXIT_CODE} -ne 0 ]]; then
+		echo ""
+	    echo " ----------------------------------------------- "
+	    echo "|    * * * CANNOT INSTALL SGT DONOWITZ * * *    |"
+	    echo "|                                               |"
+	    echo "| There was a problem creating a file.          |"
+	    echo "|                                               |"
+	    echo "| most likely this is a permission problem      |"
+	    echo "| try running the script with sudo perhaps?     |"	
+	    echo "|                                               |"
+	    echo " ----------------------------------------------- "	
+	    echo ""
+	    exit ${EXIT_CODE}
+	fi
 fi
 
 # Ensure the script doesn't already contain a .jshintignore file
 ls -l .jshintignore &> /dev/null
 EXIT_CODE=`expr ${EXIT_CODE} + $?`
 if [[ ${EXIT_CODE} -ne 0 ]]; then
-	curl -o .jshintignore https://raw.github.com/tregoning/Sgt-Donowitz/master/.jshintignore
 	EXIT_CODE=0
+	curl -o .jshintignore https://raw.github.com/tregoning/Sgt-Donowitz/master/.jshintignore
+	EXIT_CODE=`expr ${EXIT_CODE} + $?`
+	if [[ ${EXIT_CODE} -ne 0 ]]; then
+		echo ""
+	    echo " ----------------------------------------------- "
+	    echo "|    * * * CANNOT INSTALL SGT DONOWITZ * * *    |"
+	    echo "|                                               |"
+	    echo "| There was a problem creating a file.          |"
+	    echo "|                                               |"
+	    echo "| most likely this is a permission problem      |"
+	    echo "| try running the script with sudo perhaps?     |"	
+	    echo "|                                               |"
+	    echo " ----------------------------------------------- "	
+	    echo ""
+	    exit ${EXIT_CODE}
+	fi
 fi
 
 curl -o .git/hooks/pre-commit https://raw.github.com/tregoning/Sgt-Donowitz/master/pre-commit
 EXIT_CODE=`expr ${EXIT_CODE} + $?`
+if [[ ${EXIT_CODE} -ne 0 ]]; then
+	echo ""
+    echo " ----------------------------------------------- "
+    echo "|    * * * CANNOT INSTALL SGT DONOWITZ * * *    |"
+    echo "|                                               |"
+    echo "| There was a problem creating a file.          |"
+    echo "|                                               |"
+    echo "| most likely this is a permission problem      |"
+    echo "| try running the script with sudo perhaps?     |"	
+    echo "|                                               |"
+    echo " ----------------------------------------------- "	
+    echo ""
+    exit ${EXIT_CODE}
+fi
 
 chmod +x .git/hooks/pre-commit
-EXIT_CODE=`expr ${EXIT_CODE} + $?`
+EXIT_CODE=`expr ${EXIT_CODE} + $?
+if [[ ${EXIT_CODE} -ne 0 ]]; then
+	echo ""
+    echo " ----------------------------------------------- "
+    echo "|    * * * CANNOT INSTALL SGT DONOWITZ * * *    |"
+    echo "|                                               |"
+    echo "| There was a problem given executable rights   |"
+    echo "| to the pre-commit script                      |"
+    echo "|                                               |"
+    echo "| most likely this is a permission problem      |"
+    echo "| try running the script with sudo perhaps?     |"	
+    echo "|                                               |"
+    echo " ----------------------------------------------- "	
+    echo ""
+    exit ${EXIT_CODE}
+fi`
 
 curl -o .git/hooks/reporter.js https://raw.github.com/tregoning/Sgt-Donowitz/master/reporter.js
 EXIT_CODE=`expr ${EXIT_CODE} + $?`
+if [[ ${EXIT_CODE} -ne 0 ]]; then
+	echo ""
+    echo " ----------------------------------------------- "
+    echo "|    * * * CANNOT INSTALL SGT DONOWITZ * * *    |"
+    echo "|                                               |"
+    echo "| There was a problem creating a file.          |"
+    echo "|                                               |"
+    echo "| most likely this is a permission problem      |"
+    echo "| try running the script with sudo perhaps?     |"	
+    echo "|                                               |"
+    echo " ----------------------------------------------- "	
+    echo ""
+    exit ${EXIT_CODE}
+fi
 
 if [[ ${EXIT_CODE} -ne 0 ]]; then
 	echo ""
