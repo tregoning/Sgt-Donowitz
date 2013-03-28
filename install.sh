@@ -85,17 +85,14 @@ EXIT_CODE=`expr ${EXIT_CODE} + $?`
 if [[ ${EXIT_CODE} -ne 0 ]]; then
     echo "Installing JSHint..."
 	EXIT_CODE=0
-	npm install jshint -g
+	sudo npm install jshint -g
 	EXIT_CODE=`expr ${EXIT_CODE} + $?`
 	if [[ ${EXIT_CODE} -ne 0 ]]; then
 		echo ""
 	    echo " ----------------------------------------------- "
 	    echo "|    * * * CANNOT INSTALL SGT DONOWITZ * * *    |"
 	    echo "|                                               |"
-	    echo "| There was a problem installing JSHint...      |"
-	    echo "|                                               |"
-	    echo "| most likely this is a permission problem      |"
-	    echo "| try running the script with sudo perhaps?     |"	
+	    echo "| There was a problem installing JSHint...      |"	
 	    echo "|                                               |"
 	    echo " ----------------------------------------------- "	
 	    echo ""
