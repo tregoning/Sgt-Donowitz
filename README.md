@@ -4,6 +4,7 @@ Sgt Donowitz
 What?:
 ------
 It's a git pre-commit script that checks your Javascript code for errors before every commit, if it finds any issues it simply aborts the commit.
+Sgt-Donowitz helps you set this up in less than a minute.
 
 
 Why?:
