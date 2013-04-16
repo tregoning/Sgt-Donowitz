@@ -23,7 +23,7 @@ Where?
 Mac OS X / Unix only
 
 
-But... What if?
+What if?
 --------
 If for some reason you must commit a JS file without validating/linting it you can always run a commit with the "no-verify" flag:
 i.e. `git commit --no-verify .`  
