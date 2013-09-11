@@ -164,7 +164,7 @@ if [[ ${EXIT_CODE} -ne 0 ]]; then
 fi
 
 chmod +x .git/hooks/pre-commit
-EXIT_CODE=`expr ${EXIT_CODE} + $?
+EXIT_CODE=`expr ${EXIT_CODE} + $?`
 if [[ ${EXIT_CODE} -ne 0 ]]; then
 	echo ""
     echo " ----------------------------------------------- "
@@ -179,7 +179,7 @@ if [[ ${EXIT_CODE} -ne 0 ]]; then
     echo " ----------------------------------------------- "	
     echo ""
     exit ${EXIT_CODE}
-fi`
+fi
 
 curl -o .git/hooks/reporter.js https://raw.github.com/tregoning/Sgt-Donowitz/master/reporter.js
 EXIT_CODE=`expr ${EXIT_CODE} + $?`
