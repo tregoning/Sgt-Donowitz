@@ -4,11 +4,11 @@
 #
 # Description:   Git pre-commit that checks your code for js errors before you commit it
 #
-# Prerequisites: jshint to install run: "npm install jshint -g"
+# Prerequisites: - jshint to install run: "npm install jshint -g"
+#                - .git/hooks/reporter.js file
+#                - .jshintignore file
 #
-# Instructions:  http://bit.ly/git-js-lint  
-#
-# Todo:          -Attempt to fix files with fixmyjs command
+# About:  http://jt.io/2013/git-pre-commit-js-lint-script/
 #
 ###############################################################################
 
@@ -24,14 +24,14 @@ EXIT_CODE=`expr ${EXIT_CODE} + $?`
 
 if [[ ${EXIT_CODE} -ne 0 ]]; then
     echo ""
-    echo " ----------------------------------------------- "
-    echo "|        * * * CANNOT RUN JS LINTING * * *      |"
-    echo "|                                               |"
-    echo "| You do not have all pre-requisites setup!     |"
-    echo "| Please Read: http://bit.ly/git-js-lint        |"
-    echo "|                                               |"
-    echo "| Git commit has been aborted.                  |"
-    echo " ----------------------------------------------- "	
+    echo " -------------------------------------------------"
+    echo "|        * * * CANNOT RUN JS LINTING * * *        |"
+    echo "|                                                 |"
+    echo "| You do not have all the pre-requisites setup!   |"
+    echo "| Ask for help: http://bit.ly/something_is_wrong  |"
+    echo "|                                                 |"
+    echo "| Git commit has been aborted.                    |"
+    echo " -------------------------------------------------"
     echo ""
     exit $((${EXIT_CODE}))
 fi
