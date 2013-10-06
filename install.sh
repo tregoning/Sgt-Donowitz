@@ -105,21 +105,28 @@ ls -l .jshintrc &> /dev/null
 EXIT_CODE=`expr ${EXIT_CODE} + $?`
 if [[ ${EXIT_CODE} -ne 0 ]]; then
 	EXIT_CODE=0
-	curl -o .jshintrc https://raw.github.com/jshint/jshint/master/examples/.jshintrc
+	curl -f -o .jshintrc https://raw.github.com/jshint/jshint/master/examples/.jshintrc
 	EXIT_CODE=`expr ${EXIT_CODE} + $?`
 	if [[ ${EXIT_CODE} -ne 0 ]]; then
-		echo ""
-	    echo " ----------------------------------------------- "
-	    echo "|    * * * CANNOT INSTALL SGT DONOWITZ * * *    |"
-	    echo "|                                               |"
-	    echo "| There was a problem creating a file.          |"
-	    echo "|                                               |"
-	    echo "| most likely this is a permission problem      |"
-	    echo "| try running the script with sudo perhaps?     |"
-	    echo "|                                               |"
-	    echo " ----------------------------------------------- "
-	    echo ""
-	    exit ${EXIT_CODE}
+		#if jshint sample file has been moved/deleted
+		EXIT_CODE=0
+		curl -f -o .jshintrc https://raw.github.com/tregoning/Sgt-Donowitz/master/.jshintrc
+		EXIT_CODE=`expr ${EXIT_CODE} + $?`
+		if [[ ${EXIT_CODE} -ne 0 ]]; then
+			echo ""
+			echo " ----------------------------------------------- "
+			echo "|    * * * CANNOT INSTALL SGT DONOWITZ * * *    |"
+			echo "|                                               |"
+			echo "| There was a problem creating a file.          |"
+			echo "|                                               |"
+			echo "| most likely this is a permission problem      |"
+			echo "| try running the script with sudo perhaps?     |"
+			echo "|                                               |"
+			echo " ----------------------------------------------- "
+			echo ""
+			exit ${EXIT_CODE}
+		fi
+
 	fi
 fi
 
