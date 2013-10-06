@@ -135,7 +135,7 @@ ls -l .jshintignore &> /dev/null
 EXIT_CODE=`expr ${EXIT_CODE} + $?`
 if [[ ${EXIT_CODE} -ne 0 ]]; then
 	EXIT_CODE=0
-	curl -o .jshintignore https://raw.github.com/tregoning/Sgt-Donowitz/master/.jshintignore
+	touch .jshintignore
 	EXIT_CODE=`expr ${EXIT_CODE} + $?`
 	if [[ ${EXIT_CODE} -ne 0 ]]; then
 		echo ""
