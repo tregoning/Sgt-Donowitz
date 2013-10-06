@@ -25,7 +25,7 @@ if [[ ${EXIT_CODE} -ne 0 ]]; then
     echo "|                                               |"
     echo "| http://nodejs.org/download                    |"
     echo "|                                               |"
-    echo " ----------------------------------------------- "	
+    echo " ----------------------------------------------- "
     echo ""
     exit $((${EXIT_CODE}))
 fi
@@ -41,7 +41,7 @@ if [[ ${EXIT_CODE} -ne 0 ]]; then
     echo "|                                               |"
     echo "| http://curl.haxx.se/docs/install.html         |"
     echo "|                                               |"
-    echo " ----------------------------------------------- "	
+    echo " ----------------------------------------------- "
     echo ""
     exit $((${EXIT_CODE}))
 fi
@@ -57,7 +57,7 @@ if [[ ${EXIT_CODE} -ne 0 ]]; then
     echo "| Please run this script from the root of your  |"
     echo "| GIT project.                                  |"
     echo "|                                               |"
-    echo " ----------------------------------------------- "	
+    echo " ----------------------------------------------- "
     echo ""
     exit 1
 fi
@@ -73,7 +73,7 @@ if [[ ${EXIT_CODE} -eq 0 ]]; then
     echo "|                                               |"
     echo "| This project already has a pre-commit script! |"
     echo "|                                               |"
-    echo " ----------------------------------------------- "	
+    echo " ----------------------------------------------- "
     echo ""
     exit 1
 fi
@@ -92,9 +92,9 @@ if [[ ${EXIT_CODE} -ne 0 ]]; then
 	    echo " ----------------------------------------------- "
 	    echo "|    * * * CANNOT INSTALL SGT DONOWITZ * * *    |"
 	    echo "|                                               |"
-	    echo "| There was a problem installing JSHint...      |"	
+	    echo "| There was a problem installing JSHint...      |"
 	    echo "|                                               |"
-	    echo " ----------------------------------------------- "	
+	    echo " ----------------------------------------------- "
 	    echo ""
 	    exit ${EXIT_CODE}
 	fi
@@ -105,7 +105,7 @@ ls -l .jshintrc &> /dev/null
 EXIT_CODE=`expr ${EXIT_CODE} + $?`
 if [[ ${EXIT_CODE} -ne 0 ]]; then
 	EXIT_CODE=0
-	curl -o .jshintrc https://raw.github.com/tregoning/Sgt-Donowitz/master/.jshintrc
+	curl -o .jshintrc https://raw.github.com/jshint/jshint/master/examples/.jshintrc
 	EXIT_CODE=`expr ${EXIT_CODE} + $?`
 	if [[ ${EXIT_CODE} -ne 0 ]]; then
 		echo ""
@@ -115,9 +115,9 @@ if [[ ${EXIT_CODE} -ne 0 ]]; then
 	    echo "| There was a problem creating a file.          |"
 	    echo "|                                               |"
 	    echo "| most likely this is a permission problem      |"
-	    echo "| try running the script with sudo perhaps?     |"	
+	    echo "| try running the script with sudo perhaps?     |"
 	    echo "|                                               |"
-	    echo " ----------------------------------------------- "	
+	    echo " ----------------------------------------------- "
 	    echo ""
 	    exit ${EXIT_CODE}
 	fi
@@ -138,9 +138,9 @@ if [[ ${EXIT_CODE} -ne 0 ]]; then
 	    echo "| There was a problem creating a file.          |"
 	    echo "|                                               |"
 	    echo "| most likely this is a permission problem      |"
-	    echo "| try running the script with sudo perhaps?     |"	
+	    echo "| try running the script with sudo perhaps?     |"
 	    echo "|                                               |"
-	    echo " ----------------------------------------------- "	
+	    echo " ----------------------------------------------- "
 	    echo ""
 	    exit ${EXIT_CODE}
 	fi
@@ -156,9 +156,9 @@ if [[ ${EXIT_CODE} -ne 0 ]]; then
     echo "| There was a problem creating a file.          |"
     echo "|                                               |"
     echo "| most likely this is a permission problem      |"
-    echo "| try running the script with sudo perhaps?     |"	
+    echo "| try running the script with sudo perhaps?     |"
     echo "|                                               |"
-    echo " ----------------------------------------------- "	
+    echo " ----------------------------------------------- "
     echo ""
     exit ${EXIT_CODE}
 fi
@@ -174,9 +174,9 @@ if [[ ${EXIT_CODE} -ne 0 ]]; then
     echo "| to the pre-commit script                      |"
     echo "|                                               |"
     echo "| most likely this is a permission problem      |"
-    echo "| try running the script with sudo perhaps?     |"	
+    echo "| try running the script with sudo perhaps?     |"
     echo "|                                               |"
-    echo " ----------------------------------------------- "	
+    echo " ----------------------------------------------- "
     echo ""
     exit ${EXIT_CODE}
 fi
@@ -191,9 +191,9 @@ if [[ ${EXIT_CODE} -ne 0 ]]; then
     echo "| There was a problem creating a file.          |"
     echo "|                                               |"
     echo "| most likely this is a permission problem      |"
-    echo "| try running the script with sudo perhaps?     |"	
+    echo "| try running the script with sudo perhaps?     |"
     echo "|                                               |"
-    echo " ----------------------------------------------- "	
+    echo " ----------------------------------------------- "
     echo ""
     exit ${EXIT_CODE}
 fi
@@ -206,7 +206,7 @@ if [[ ${EXIT_CODE} -ne 0 ]]; then
 	echo "| Sorry, something went wrong...                |"
 	echo "| Please perform a manual check                 |"
 	echo "|                                               |"
-	echo " ----------------------------------------------- "	
+	echo " ----------------------------------------------- "
 	echo ""
     exit $((${EXIT_CODE}))
 else
@@ -223,7 +223,7 @@ else
 	echo "|   Remember you can ignore files/folders simply by         |"
 	echo "|   adding them to .jshintignore                            |"
 	echo "|                                                           |"
-	echo " ----------------------------------------------------------- "	
+	echo " ----------------------------------------------------------- "
 	echo ""
 fi
 
