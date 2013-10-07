@@ -48,7 +48,7 @@ fi
 EXIT_CODE=0
 
 # Show files about to be commited that do not match filters in .jshintignore and are js files
-FILES_TO_CHECK=`git diff-index --name-only --cached --diff-filter=ACMRTX ${against} -- | grep -v -f .jshintignore | grep \.js$ -i`
+FILES_TO_CHECK=`git diff-index --name-only --cached --diff-filter=ACMRTX ${against} -- | grep -vx -e "`cat .jshintignore  | sed 's/*/.*/g'`" | grep \.js$ -i`
 for FILE in ${FILES_TO_CHECK}; do
     jshint ${FILE} >> /dev/null
     EXIT_CODE=`expr ${EXIT_CODE} + $?`
