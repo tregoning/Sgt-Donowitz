@@ -8,6 +8,9 @@
 #                - .git/hooks/reporter.js file
 #                - .jshintignore file
 #
+# Todo: Need to translate .jshintignore into corresponding regex
+#		(e.g. '*.js' with '.*.js')
+#
 # About:  http://jt.io/2013/git-pre-commit-js-lint-script/
 #
 ###############################################################################
@@ -49,7 +52,7 @@ EXIT_CODE=0
 
 # Show files about to be commited that do not match filters in .jshintignore and are js files
 if [ -s .jshintignore ]; then
-  FILES_TO_CHECK=`git diff-index --name-only --cached --diff-filter=ACMRTX ${against} -- | grep -vx -e "`cat .jshintignore  | sed 's/*/.*/g'`" | grep \.js$ -i`
+  FILES_TO_CHECK=`git diff-index --name-only --cached --diff-filter=ACMRTX ${against} -- | grep -vx -f .jshintignore | sed 's/*/.*/g'` | grep \.js$ -i`
 else
   FILES_TO_CHECK=`git diff-index --name-only --cached --diff-filter=ACMRTX ${against} -- | grep \.js$ -i`
 fi
