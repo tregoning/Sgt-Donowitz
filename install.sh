@@ -105,12 +105,12 @@ ls -l .jshintrc &> /dev/null
 EXIT_CODE=`expr ${EXIT_CODE} + $?`
 if [[ ${EXIT_CODE} -ne 0 ]]; then
 	EXIT_CODE=0
-	curl -f -o .jshintrc https://raw.github.com/jshint/jshint/master/examples/.jshintrc
+	curl -f -o .jshintrc https://raw.githubusercontent.com/jshint/jshint/master/examples/.jshintrc
 	EXIT_CODE=`expr ${EXIT_CODE} + $?`
 	if [[ ${EXIT_CODE} -ne 0 ]]; then
 		#if jshint sample file has been moved/deleted
 		EXIT_CODE=0
-		curl -f -o .jshintrc https://raw.github.com/tregoning/Sgt-Donowitz/master/.jshintrc
+		curl -f -o .jshintrc https://raw.githubusercontent.com/tregoning/Sgt-Donowitz/master/.jshintrc
 		EXIT_CODE=`expr ${EXIT_CODE} + $?`
 		if [[ ${EXIT_CODE} -ne 0 ]]; then
 			echo ""
@@ -153,7 +153,7 @@ if [[ ${EXIT_CODE} -ne 0 ]]; then
 	fi
 fi
 
-curl -o .git/hooks/pre-commit https://raw.github.com/tregoning/Sgt-Donowitz/master/pre-commit
+curl -o .git/hooks/pre-commit https://raw.githubusercontent.com/tregoning/Sgt-Donowitz/master/pre-commit
 EXIT_CODE=`expr ${EXIT_CODE} + $?`
 if [[ ${EXIT_CODE} -ne 0 ]]; then
 	echo ""
@@ -188,7 +188,7 @@ if [[ ${EXIT_CODE} -ne 0 ]]; then
     exit ${EXIT_CODE}
 fi
 
-curl -o .git/hooks/reporter.js https://raw.github.com/tregoning/Sgt-Donowitz/master/reporter.js
+curl -o .git/hooks/reporter.js https://raw.githubusercontent.com/tregoning/Sgt-Donowitz/master/reporter.js
 EXIT_CODE=`expr ${EXIT_CODE} + $?`
 if [[ ${EXIT_CODE} -ne 0 ]]; then
 	echo ""
